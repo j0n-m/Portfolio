@@ -48,8 +48,10 @@ input:focus + .slider {
   transition: none;
 }
 input:focus:checked + .slider {
-  box-shadow: 0 0 8px rgb(80, 65, 165);
-  outline: 2px solid rgb(80, 65, 165);
+  /* box-shadow: 0 0 8px rgb(80, 65, 165);
+  outline: 2px solid rgb(80, 65, 165); */
+  box-shadow: 0 0 8px rgb(50, 50, 50);
+  outline: 2px solid rgb(50, 50, 50);
   transition: none;
 }
 
@@ -72,14 +74,63 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-nav,
-div {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+* {
+  transition-property: background-color, border-color, text-decoration-color,
+    fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+  transition-duration: 500ms;
+}
+
+.hamburgerMenuBtn.menu {
+  animation: rotate 400ms forwards;
+}
+.hamburgerMenuBtn.home {
+  animation: reverseRotate 400ms forwards;
 }
 
 .hamburgerMenu {
-  transition: opacity 4s;
+  animation: slideIn 400ms;
+}
+
+.hamburgerMenu.hide {
+  animation: slideOut 400ms;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    display: block;
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    display: none;
+    transform: translateX(-500px);
+    opacity: 0;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+@keyframes reverseRotate {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }

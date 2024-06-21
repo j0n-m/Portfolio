@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 type SwitchType = {
-  htmlMainPage: React.RefObject<HTMLDivElement>;
+  htmlMainPage: HTMLElement;
   preferLightTheme: boolean;
 };
 function InputSwitch({ preferLightTheme, htmlMainPage }: SwitchType) {
@@ -10,26 +10,17 @@ function InputSwitch({ preferLightTheme, htmlMainPage }: SwitchType) {
   // ).matches;
   const [lightTheme, setLightTheme] = useState<boolean>(preferLightTheme);
 
-  // useEffect(() => {
-  //   if (!lightTheme) {
-  //     console.log(htmlMainPage);
-  //     console.log(lightTheme);
-  //     htmlMainPage.current?.classList.toggle("dark");
-  //   }
-  // }, []);
   // if (!lightTheme) {
-  //   console.log(htmlMainPage);
-  //   console.log(lightTheme);
-  //   htmlMainPage.current?.classList.toggle("dark");
+  //   htmlMainPage.classList.add("dark");
   // }
 
   const handleThemeChange = () => {
     setLightTheme(!lightTheme);
-    htmlMainPage.current?.classList.toggle("dark");
+    htmlMainPage.classList.toggle("dark");
   };
 
   return (
-    <>
+    <div className="themeSwitch flex justify-center items-center">
       <label className="switch">
         <input
           type="checkbox"
@@ -45,7 +36,7 @@ function InputSwitch({ preferLightTheme, htmlMainPage }: SwitchType) {
         />
         <span className="slider round"></span>
       </label>
-    </>
+    </div>
   );
 }
 

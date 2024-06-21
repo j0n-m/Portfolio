@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#root {
+  overflow: auto;
+}
+.page-wrapper {
+  overflow: auto;
+}

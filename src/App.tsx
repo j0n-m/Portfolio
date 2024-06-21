@@ -1,6 +1,5 @@
 import NavBar from "./components/NavBar";
 import "./App.css";
-import { useRef } from "react";
 import MainContent from "./components/MainContent";
 import Footer from "./components/Footer";
 
@@ -10,17 +9,16 @@ import Footer from "./components/Footer";
 */
 
 function App() {
-  const htmlMainPage = useRef<HTMLDivElement>(null);
+  const htmlMainPage = document.getElementById("html")!;
   const preferLightTheme = window.matchMedia(
     "(prefers-color-scheme: light)"
   ).matches;
 
+  !preferLightTheme && htmlMainPage.classList.add("dark");
+
   return (
     <div
-      className={`page-wrapper relative text-lg font-sans flex flex-col dark:bg-neutral-800 ${
-        preferLightTheme ? "light" : "dark"
-      }`}
-      ref={htmlMainPage}
+      className={`page-wrapper relative text-lg font-sans flex flex-col dark:bg-neutral-800`}
     >
       <NavBar htmlMainPage={htmlMainPage} preferLightTheme={preferLightTheme} />
       <MainContent />

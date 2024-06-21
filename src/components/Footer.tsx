@@ -2,9 +2,9 @@ const currentYear = new Date().getFullYear();
 
 function Footer() {
   return (
-    <div className="bg-gray-400 text-neutral-950">
+    <footer className="bg-gray-400 p-8 flex justify-center items-center">
       Footer &copy;{currentYear}
-    </div>
+    </footer>
   );
 }
 
